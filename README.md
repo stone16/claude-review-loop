@@ -1,10 +1,24 @@
 # claude-review-loop
 
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-blueviolet)](https://claude.ai/claude-code)
+[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/stone16/claude-review-loop/releases)
+[![Peer: Codex](https://img.shields.io/badge/peer-Codex_CLI-74aa9c)](https://github.com/openai/codex)
+[![Peer: Gemini](https://img.shields.io/badge/peer-Gemini_CLI-4285F4)](https://github.com/google-gemini/gemini-cli)
+
 **Cross-LLM iterative code review for Claude Code.**
 
 Spawns a peer AI reviewer (OpenAI Codex or Google Gemini) to independently review your code. Claude evaluates findings, fixes accepted issues, and re-submits for re-review — looping until both agents reach consensus.
 
 You don't participate. You watch.
+
+| Variant | Peer Reviewer | Best For |
+|---------|--------------|----------|
+| `review loop` | Codex (default) | General code review, strong at logic/security |
+| `review loop with gemini` | Gemini CLI | Alternative perspective, good at patterns/style |
+| `review loop, max 3 rounds` | Configurable | Quick reviews with time constraints |
+| `review loop for PR 42` | Auto-detect | PR-scoped review via `gh` CLI |
+| `review loop for commit abc123` | Auto-detect | Single commit review |
 
 ---
 
@@ -332,6 +346,16 @@ Apache 2.0 — see [LICENSE](LICENSE)
 自动调用另一个 AI（OpenAI Codex 或 Google Gemini）独立审查你的代码。Claude 评估审查结果，修复被采纳的问题，然后重新提交审查 —— 循环直到两个 AI 达成共识。
 
 你不需要参与，只需要观看。
+
+### 调用方式一览
+
+| 调用方式 | Peer Reviewer | 适用场景 |
+|---------|--------------|---------|
+| `review loop` | Codex（默认） | 通用代码审查，擅长逻辑/安全 |
+| `review loop with gemini` | Gemini CLI | 替代视角，擅长模式/风格 |
+| `review loop, max 3 rounds` | 可配置 | 有时间限制的快速审查 |
+| `review loop for PR 42` | 自动检测 | 通过 `gh` CLI 限定 PR 范围 |
+| `review loop for commit abc123` | 自动检测 | 单个 commit 审查 |
 
 ---
 
